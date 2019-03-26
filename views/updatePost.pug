@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 Update Post
+
+    form(method='GET' action='/saveUpdate')
+        p
+            label(for='id') Post to Update
+            input(type='text', id='id', name='Id')
+        p
+            label(for='title') Title:
+            input(type='text', id='title', name='Title')
+        p
+            label(for='body') Body:
+            input(type='text', id='body', name='Body')
+        br
+        button Update
+        p
+            a(href='/') Cancel

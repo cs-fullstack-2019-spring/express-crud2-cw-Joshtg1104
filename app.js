@@ -6,18 +6,16 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-// var fillPostData = require('./routes/fillPostData');
+var fillPostData = require('./routes/fillPostData');
 
 var app = express();
 
-
 //Set up mongoose connection
 var mongoose = require('mongoose');
-var mongoDB = '';
+var mongoDB = 'mongodb+srv://admin:test4321@cluster0-yzx1s.mongodb.net/mongoTest?retryWrites=true';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-// app.use('/fillData', fillPostData);
+app.use('/postData', fillPostData);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

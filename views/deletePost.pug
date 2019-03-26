@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h1 Delete Post
+
+    form(method='GET' action='/saveDelete')
+        p
+            label(for='id') Do you want to Delete this Post?
+            input(type='text', id='id', name='id')
+
+        button Delete
+        br
+        a(href='/') Cancel

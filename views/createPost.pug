@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1 New Post
+
+    form(method='GET' action='/savePost')
+        p
+            label(for='userId') User ID:
+            input(type='text', id='userId', name='UserId')
+        p
+            label(for='id') ID #:
+            input(type='text', id='id', name='Id')
+        p
+            label(for='title') Title:
+            input(type='text', id='title', name='Title')
+        p
+            label(for='body') Body:
+            input(type='text', id='body', name='Body')
+        br
+        button Post
+        p
+            a(href='/') Cancel
